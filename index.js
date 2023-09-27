@@ -1,9 +1,16 @@
-const mysql = require('mysql2');
+import mysql from 'mysql';
 
-// Paramètres de connexion
-const dbConfig = {
-  host: 'localhost',
-  user: 'your-username',
-  password: 'your-password',
-  database: 'your-database'
-};
+let connection = mysql.createConnection({
+    host : 'localhost',
+    user: 'root',
+    password: '',
+    database: 'restful_api',
+  });
+   
+  connection.connect((err)=>{
+    if(err) throw err
+    console.log("ok")
+
+
+  });
+
