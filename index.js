@@ -14,10 +14,10 @@ connection.connect((err) => {
   if (err) throw err;
   console.log("ok");
 });
-getAllTasks();
-getTaskFromIdUser();
-gettaskByuser();
-editAllTaskByNameUser();
-addTaskToUser(3,"repos",1,1);
+// getAllTasks();
+// getTaskFromIdUser();
+// gettaskByuser();
+// editAllTaskByNameUser();
+// addTaskToUser(3,"repos",1,1);
 
 
