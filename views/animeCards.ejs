@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Cards</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            margin: 20px;
+            width: 240px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+            height: 4em; /* show 3 lines of synopsis */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; /* number of lines to show */
+            -webkit-box-orient: vertical;
+        }
+    </style>
+</head>
+<body>
+    <% animes.forEach(anime => { %>
+        <div class="card">
+            <img src="<%= anime.images.jpg.image_url%>" alt="<%= anime.titles.en %>">
+            <h2><%= anime.titles.en %></h2>
+            <p><%= anime.synopsis %></p>
+            <!-- Indicateur pour montrer si l'anime a été regardé ou non -->
+            <% if(anime.regarder) { %>
+                <p style="color: green;">✓ Regardé</p>
+            <% } else { %>
+                <p style="color: red;">✗ Non regardé</p>
+            <% } %>
+        </div>
+    <% }) %>
+</body>
+</html>
